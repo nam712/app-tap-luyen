@@ -57,12 +57,22 @@ const HomeScreen = () => {
             <TouchableOpacity style={styles.card}>
               <Image source={require('./assets/home-pic/squat.png')} style={styles.cardImage} />
               <Text style={styles.cardTitle}>Squat Exercise</Text>
-              <Text style={styles.cardSubtitle}>12 Minutes | 120 Kcal</Text>
+              <View style={styles.inlineInfo}>
+                  <Icon name="time-outline" size={16} color="#555" />
+                  <Text style={[styles.cardSubtitle, { marginLeft: 1 }]}> 12 Minutes</Text>
+                  <Icon name="flame-outline" size={16} color="#555" style={{ marginLeft: 10 }} />
+                  <Text style={[styles.cardSubtitle, { marginLeft: 1 }]}> 120 Kcal</Text>
+                </View> 
             </TouchableOpacity>
             <TouchableOpacity style={styles.card}>
               <Image source={require('./assets/home-pic/stretching.png')} style={styles.cardImage} />
               <Text style={styles.cardTitle}>Full Body Stretching</Text>
-              <Text style={styles.cardSubtitle}>12 Minutes | 120 Kcal</Text>
+              <View style={styles.inlineInfo}>
+                  <Icon name="time-outline" size={16} color="#555" />
+                  <Text style={[styles.cardSubtitle, { marginLeft: 1 }]}> 12 Minutes</Text>
+                  <Icon name="flame-outline" size={16} color="#555" style={{ marginLeft: 10 }} />
+                  <Text style={[styles.cardSubtitle, { marginLeft: 1 }]}> 120 Kcal</Text>
+                </View> 
             </TouchableOpacity>
           </ScrollView>
         </View>
@@ -88,12 +98,24 @@ const HomeScreen = () => {
             <TouchableOpacity style={styles.card}>
               <Image source={require('./assets/home-pic/supplement-guide.png')} style={styles.cardImage} />
               <Text style={styles.cardTitle}>Supplement Guide</Text>
-              <Text style={styles.cardSubtitle}>10 Minutes | 70 Kcal</Text>
+              <View style={{ marginTop: 15 }}>
+                <View style={styles.inlineInfo}>
+                  <Icon name="time-outline" size={16} color="#555" />
+                  <Text style={[styles.cardSubtitle, { marginLeft: 1 }]}> 10 Minutes</Text>
+                  <Icon name="flame-outline" size={16} color="#555" style={{ marginLeft: 10 }} />
+                  <Text style={[styles.cardSubtitle, { marginLeft: 1 }]}> 70 Kcal</Text>
+                </View>             
+              </View>
             </TouchableOpacity>
             <TouchableOpacity style={styles.card}>
               <Image source={require('./assets/home-pic/daily-routines.png')} style={styles.cardImage} />
               <Text style={styles.cardTitle}>15 Quick & Effective Daily Routines</Text>
-              <Text style={styles.cardSubtitle}>5 Minutes | 100 Kcal</Text>
+              <View style={styles.inlineInfo}>
+                  <Icon name="time-outline" size={16} color="#555" />
+                  <Text style={[styles.cardSubtitle, { marginLeft: 1 }]}> 5 Minutes</Text>
+                  <Icon name="flame-outline" size={16} color="#555" style={{ marginLeft: 10 }} />
+                  <Text style={[styles.cardSubtitle, { marginLeft: 1 }]}> 100 Kcal</Text>
+                </View> 
             </TouchableOpacity>
           </ScrollView>
         </View>
@@ -121,10 +143,15 @@ const styles = StyleSheet.create({
   sectionTitle: { fontSize: 18, color: '#fff', fontWeight: 'bold', paddingLeft:20},
   seeAll: { color: '#3498db', fontSize: 14, marginTop: 5, paddingRight:30 },
   contentContainer: { justifyContent: 'center', alignItems: 'center' },
-  card: { marginRight: 10, width: 150, backgroundColor: '#333', borderRadius: 8, overflow: 'hidden' },
+  card: { marginRight: 10, width: 165, backgroundColor: '#333', borderRadius: 8, overflow: 'hidden' },
   cardImage: { width: '100%', height: 100 },
   cardTitle: { color: '#fff', fontSize: 14, fontWeight: 'bold', margin: 5 },
   cardSubtitle: { color: '#888', fontSize: 12, margin: 5 },
+  inlineInfo: { 
+    flexDirection: 'row', 
+    alignItems: 'center',
+    marginBottom: 5,
+  },
   weeklyChallenge: {
     padding: 20,
     backgroundColor: '#e8f4ff',

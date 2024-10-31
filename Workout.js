@@ -22,7 +22,14 @@ const WorkoutScreen = () => {
       <View style={styles.trainingSection}>
         <Image source={require('./assets/home-pic/squat.png')} style={styles.trainingImage} />
         <Text style={styles.trainingTitle}>Functional Training</Text>
-        <Text style={styles.trainingSubtitle}>2 Minutes | 1450 Kcal | 3 Exercises</Text>
+        <View style={styles.inlineInfo}> 
+            <Icon name="time-outline" size={16} color="#555" />
+            <Text style={[styles.trainingSubtitle, { marginLeft: 3 }]}>2 Minutes</Text>
+            <Icon name="flame-outline" size={16} color="#555" style={{ marginLeft: 10 }} />
+            <Text style={[styles.trainingSubtitle, { marginLeft: 3 }]}>1450 Kcal</Text>
+            <Icon name="barbell-outline" size={16} color="#555" style={{ marginLeft: 10 }}/>
+            <Text style={[styles.trainingSubtitle, { marginLeft: 3 }]}>3 Exercises</Text>
+        </View>
       </View>
 
       <Text style={styles.sectionTitle}>Let's Go Beginner</Text>
@@ -32,32 +39,50 @@ const WorkoutScreen = () => {
             <Text style={styles.workoutName}>Upper Body</Text>
             <View style={styles.inlineInfo}>
               <Icon name="time-outline" size={16} color="#555" />
-              <Text style={styles.workoutInfoText}> 60 Minutes</Text>
+              <Text style={[styles.workoutInfoText, { marginLeft: 3 }]}>60 Minutes</Text>
               <Icon name="flame-outline" size={16} color="#555" style={{ marginLeft: 10 }} />
-              <Text style={styles.workoutInfoText}> 1320 Kcal</Text>
+              <Text style={[styles.workoutInfoText, { marginLeft: 3 }]}> 1320 Kcal</Text>
+            </View>
+            <View style={styles.exerciseInfo}>
+              <Icon name="barbell-outline" size={16} color="#555" />
+              <Text style={[styles.workoutInfoText, { marginLeft: 3 }]}> 5 Exercises</Text>
+            </View>
+          </View>
+          <Image source={require('./assets/home-pic/upperbody.png')} style={styles.workoutImage} />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.workoutCard}>
+          <View style={styles.workoutTextContainer}>
+            <Text style={styles.workoutName}>Full body stretching</Text>
+            <View style={styles.inlineInfo}>
+              <Icon name="time-outline" size={16} color="#555" />
+              <Text style={styles.workoutInfoText}> 45 Minutes</Text>
+              <Icon name="flame-outline" size={16} color="#555" style={{ marginLeft: 10 }} />
+              <Text style={styles.workoutInfoText}> 1450 Kcal</Text>
             </View>
             <View style={styles.exerciseInfo}>
               <Icon name="barbell-outline" size={16} color="#555" />
               <Text style={styles.workoutInfoText}> 5 Exercises</Text>
             </View>
           </View>
-          <Image source={require('./assets/home-pic/plank.png')} style={styles.workoutImage} />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.workoutCard}>
-          <View style={styles.workoutTextContainer}>
-            <Text style={styles.workoutName}>Full Body Stretching</Text>
-            <Text style={styles.workoutInfo}>45 Minutes | 1450 Kcal | 5 Exercises</Text>
-          </View>
-          <Image source={require('./assets/home-pic/plank.png')} style={styles.workoutImage} />
+          <Image source={require('./assets/home-pic/bodystretching.png')} style={styles.workoutImage} />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.workoutCard}>
           <View style={styles.workoutTextContainer}>
             <Text style={styles.workoutName}>Glutes & Abs</Text>
-            <Text style={styles.workoutInfo}>12 Minutes | 120 Kcal</Text>
+            <View style={styles.inlineInfo}>
+              <Icon name="time-outline" size={16} color="#555" />
+              <Text style={styles.workoutInfoText}> 12 Minutes</Text>
+              <Icon name="flame-outline" size={16} color="#555" style={{ marginLeft: 10 }} />
+              <Text style={styles.workoutInfoText}> 120 Kcal</Text>
+            </View>
+            <View style={styles.exerciseInfo}>
+              <Icon name="barbell-outline" size={16} color="#555" />
+              <Text style={styles.workoutInfoText}> 5 Exercises</Text>
+            </View>
           </View>
-          <Image source={require('./assets/home-pic/plank.png')} style={styles.workoutImage} />
+          <Image source={require('./assets/home-pic/glutesabs.png')} style={styles.workoutImage} />
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -75,6 +100,11 @@ const styles = StyleSheet.create({
   trainingSection: { padding: 20, alignItems: 'center' },
   trainingImage: { width: '100%', height: 200, borderRadius: 8 },
   trainingTitle: { fontSize: 20, color: '#fff', fontWeight: 'bold', marginVertical: 10 },
+  inlineTrainingInfo: { 
+    flexDirection: 'row', 
+    justifyContent: 'center', 
+    marginTop: 5 
+  },
   trainingSubtitle: { color: '#888' },
   sectionTitle: { fontSize: 18, color: '#fff', padding: 20 },
   workoutList: { paddingHorizontal: 20 },
@@ -91,7 +121,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingRight: 20,
   },
-  workoutName: { fontSize: 16, fontWeight: 'bold', color: '#333' },
+  workoutName: { fontSize: 25, fontWeight: 'bold', color: '#333' },
   inlineInfo: { 
     flexDirection: 'row', 
     alignItems: 'center',
@@ -100,7 +130,7 @@ const styles = StyleSheet.create({
   exerciseInfo: { 
     flexDirection: 'row', 
     alignItems: 'center',
-    marginTop: 5,
+
   },
   workoutInfoText: { color: '#555', fontSize: 12, marginHorizontal: 5 },
   workoutImage: { 
