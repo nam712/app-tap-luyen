@@ -1,8 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
+
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
@@ -23,7 +26,7 @@ const HomeScreen = () => {
       </View>
 
       <View style={styles.navBar}>
-        <TouchableOpacity style={styles.navItem}>
+      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Workout')}>
           <Icon name="barbell-outline" size={24} color="#fff" />
           <Text style={styles.navText}>Workout</Text>
         </TouchableOpacity>
