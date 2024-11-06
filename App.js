@@ -9,6 +9,8 @@ import ProgressScreen from './ProgressScreen';
 import FavoriteScreen from './FavoriteScreen';
 import ContactScreen from './ContactScreen';
 import Workout from './Workout';
+import { FavoritesProvider } from './FavoritesContext';
+import Nutrition from './Nutrition';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -47,22 +49,37 @@ function TabNavigator() {
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="TabNavigator" component={TabNavigator} options={{ headerShown: false }} />
-        <Stack.Screen 
-  name="Workout" 
-  component={Workout} 
-  options={{ 
-    headerShown: true,
-    headerStyle: styles.header, // Apply header background style
-    headerTitleStyle: styles.headerTitle, // Apply title text style
-    headerTintColor: styles.headerTitle.color, // Color of back button and icons
-  }} 
-/>
-
-      </Stack.Navigator>
-    </NavigationContainer>
+    <FavoritesProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="TabNavigator"
+            component={TabNavigator}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Workout"
+            component={Workout}
+            options={{
+              headerShown: true,
+              headerStyle: styles.header,
+              headerTitleStyle: styles.headerTitle,
+              headerTintColor: styles.headerTitle.color,
+            }}
+          />
+          <Stack.Screen
+            name="Nutrition" 
+            component={Nutrition}
+            options={{
+              headerShown: true,
+              headerStyle: styles.header,
+              headerTitleStyle: styles.headerTitle,
+              headerTintColor: styles.headerTitle.color,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </FavoritesProvider>
   );
 }
 const styles = StyleSheet.create({

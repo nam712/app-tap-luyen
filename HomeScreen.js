@@ -34,7 +34,7 @@ const HomeScreen = () => {
           <Icon name="stats-chart-outline" size={24} color="#fff" />
           <Text style={styles.navText}>Progress Tracking</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Nutrition')}>
           <Icon name="restaurant-outline" size={24} color="#fff" />
           <Text style={styles.navText}>Nutrition</Text>
         </TouchableOpacity>
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingRight: 20,
   },
-  weeklyTitle: { fontSize: 30, fontWeight: 'bold', color: '#333',textAlign:'center' },
+  weeklyTitle: { fontSize: 26, fontWeight: 'bold', color: '#333',textAlign:'center' },
   weeklySubtitle: { fontSize: 14, color: '#555', marginVertical: 10, textAlign:'center' },
 });
 
