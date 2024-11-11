@@ -9,13 +9,13 @@ export const useFavorites = () => {
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
-  const toggleFavorite = (workout) => {
+  const toggleFavorite = (item) => {
     setFavorites((prevFavorites) => {
-      const isFavorite = prevFavorites.some((fav) => fav.name === workout.name);
+      const isFavorite = prevFavorites.some((fav) => fav.name === item.name);
       if (isFavorite) {
-        return prevFavorites.filter((fav) => fav.name !== workout.name);
+        return prevFavorites.filter((fav) => fav.name !== item.name);
       } else {
-        return [...prevFavorites, workout];
+        return [...prevFavorites, item];
       }
     });
   };

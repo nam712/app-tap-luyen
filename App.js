@@ -4,14 +4,19 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
+import SplashScreen from './SplashScreen';
 import HomeScreen from './HomeScreen';
 import ProgressScreen from './ProgressScreen';
 import FavoriteScreen from './FavoriteScreen';
 import ContactScreen from './ContactScreen';
 import Workout from './Workout';
+import Community from './Community'
 import { FavoritesProvider } from './FavoritesContext';
 import Nutrition from './Nutrition';
-
+import MealPlans from './MealPlans';
+import RecipeDetail from './RecipDetail';
+import MealIdeas from './MealIdeas';
+import Video from './Video';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -52,6 +57,11 @@ export default function App() {
     <FavoritesProvider>
       <NavigationContainer>
         <Stack.Navigator>
+        <Stack.Screen 
+          name="SplashScreen" 
+          component={SplashScreen} 
+          options={{ headerShown: false, animationEnabled: false }} 
+        />
           <Stack.Screen
             name="TabNavigator"
             component={TabNavigator}
@@ -60,6 +70,26 @@ export default function App() {
           <Stack.Screen
             name="Workout"
             component={Workout}
+            options={{
+              headerShown: true,
+              headerStyle: styles.header,
+              headerTitleStyle: styles.headerTitle,
+              headerTintColor: styles.headerTitle.color,
+            }}
+          />
+            <Stack.Screen
+            name="Community"
+            component={Community}
+            options={{
+              headerShown: true,
+              headerStyle: styles.header,
+              headerTitleStyle: styles.headerTitle,
+              headerTintColor: styles.headerTitle.color,
+            }}
+          />
+             <Stack.Screen
+            name="Video"
+            component={Video}
             options={{
               headerShown: true,
               headerStyle: styles.header,
@@ -77,6 +107,28 @@ export default function App() {
               headerTintColor: styles.headerTitle.color,
             }}
           />
+             <Stack.Screen
+            name="MealPlans" 
+            component={MealPlans}
+            options={{
+              headerShown: true,
+              headerStyle: styles.header,
+              headerTitleStyle: styles.headerTitle,
+              headerTintColor: styles.headerTitle.color,
+            }}
+          />
+            <Stack.Screen
+            name="MealIdeas" 
+            component={MealIdeas}
+            options={{
+              headerShown: true,
+              headerStyle: styles.header,
+              headerTitleStyle: styles.headerTitle,
+              headerTintColor: styles.headerTitle.color,
+            }}
+          />
+          <Stack.Screen name="RecipeDetail" component={RecipeDetail} options={{ title: 'Recipe', headerStyle: { backgroundColor: '#111' }, headerTintColor: '#fff' }} />
+          
         </Stack.Navigator>
       </NavigationContainer>
     </FavoritesProvider>

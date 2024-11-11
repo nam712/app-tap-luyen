@@ -2,21 +2,13 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { faqs } from './DataSets';
 
 export default function ContactScreen() {
-  const [isFAQ, setIsFAQ] = useState(true); // Toggle between FAQ and Contact Us
-  const [expandedFAQs, setExpandedFAQs] = useState([false, false, false, false, false]); // Track FAQ expanded state
-  const [searchQuery, setSearchQuery] = useState(''); // Store the search query
+  const [isFAQ, setIsFAQ] = useState(true);
+  const [expandedFAQs, setExpandedFAQs] = useState([false, false, false, false, false]); 
+  const [searchQuery, setSearchQuery] = useState(''); 
 
-  const faqs = [
-    { question: 'Lorem ipsum dolor sit amet?', answer: 'Lorem hello de buas gsmrs' },
-    { question: 'Consectetur adipiscing elit?', answer: 'Answer for question 2' },
-    { question: 'Integer nec odio?', answer: 'Answer for question 3' },
-    { question: 'Praesent libero?', answer: 'Answer for question 4' },
-    { question: 'Sed cursus ante dapibus diam?', answer: 'Answer for question 5' }
-  ];
-
-  // Filter FAQs based on the search query
   const filteredFAQs = faqs.filter(faq =>
     faq.question.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -36,9 +28,7 @@ export default function ContactScreen() {
 
       <View style={styles.tabContainer}>
         <TouchableOpacity 
-          style={[styles.tab, isFAQ && styles.activeTab]}
-          onPress={() => setIsFAQ(true)}
-        >
+          style={[styles.tab, isFAQ && styles.activeTab]} onPress={() => setIsFAQ(true)}>
           <Text style={styles.tabText}>FAQ</Text>
         </TouchableOpacity>
         <TouchableOpacity 
@@ -51,7 +41,6 @@ export default function ContactScreen() {
 
       {isFAQ ? (
         <ScrollView style={styles.faqContainer}>
-          {/* Search Bar */}
           <TextInput
             style={styles.searchInput}
             placeholder="Search FAQs"
@@ -134,7 +123,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#333',
     alignItems: 'center',
-    borderRadius: 5,
+    borderRadius: 17,
     marginHorizontal: 5,
   },
   activeTab: {
@@ -151,7 +140,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#333',
     color: '#fff',
     padding: 10,
-    borderRadius: 5,
+    borderRadius: 17,
     marginBottom: 20,
   },
   faqItem: {

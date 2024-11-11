@@ -38,7 +38,7 @@ const HomeScreen = () => {
           <Icon name="restaurant-outline" size={24} color="#fff" />
           <Text style={styles.navText}>Nutrition</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
+        <TouchableOpacity style={styles.navItem}  onPress={() => navigation.navigate('Community')}>
           <Icon name="people-outline" size={24} color="#fff" />
           <Text style={styles.navText}>Community</Text>
         </TouchableOpacity>
