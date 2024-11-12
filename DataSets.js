@@ -11,7 +11,7 @@ export const workoutData={
         {
             name: "Upper Body", 
             duration: "60 Minutes", 
-            calories: "1320 Kcal", 
+            calories: "13.0 Kcal", 
             exercises: "5 Exercises", 
             image: require('./assets/home-pic/upperbody.png'),
             content: 'Lorem ipsum dolor sit amet consectetur. Magnis pellentesque felis ullamcorper imperdiet.'   
@@ -280,6 +280,7 @@ export const communityData=[
         calories: '100 Kcal',
         exercises:'Low' ,
         image: require('./assets/community/Challenge.png'),
+        conclusion:'Plank With Hip Twist',
         content: 'Lorem ipsum dolor sit amet consectetur. Magnis pellentesque felis ullamcorper imperdiet.'
     },
     {
@@ -323,4 +324,51 @@ export const forums = [
         subtitle: 'About different types of cardio workouts', 
         time: 'Today 17:05' 
     },
-  ]
+]
+export const ArticlesData=[
+    {
+    name: 'Strength Training Tips', 
+    duration: '15/9', 
+    time: 'published on September 15', 
+    image: require('./assets/Articles/Strength-Training.png'),
+    content: 'Discover essential Strength Training Tips to maximize your workouts and achieve your fitness goals efficiently. Learn how to optimize your routine, prevent injuries, and unlock your full potential in the gym.',
+    content1:'Plan your routine for the week. Focus on different muscle groups on different days to allow for adequate rest and recovery.',
+    content2:'Begin your workout with a proper warm-up session. This could include light cardio exercises like jogging or jumping jacks, as well as dynamic stretches to prepare your muscles for the upcoming workout.'
+},
+{
+    name: 'Healthy Weight Loss', 
+    duration: '23/9', 
+    time: 'published on September 23',  
+    image: require('./assets/Articles/Healthy-Weight.png'),
+    content: 'Discover essential Strength Training Tips to maximize your workouts and achieve your fitness goals efficiently. Learn how to optimize your routine, prevent injuries, and unlock your full potential in the gym.',
+    content1:'Before starting any workout, plan your routine for the week. Focus on different muscle groups on different days to allow for adequate rest and recovery.',
+    content2:'Begin your workout with a proper warm-up session. This could include light cardio exercises like jogging or jumping jacks, as well as dynamic stretches to prepare your muscles for the upcoming workout.'
+},
+{
+    name: 'Unlock Your Gym Potential', 
+    duration: '15/11', 
+    time: 'published on November 15', 
+    image: require('./assets/Articles/Gym-Potential.png'),
+    content: 'Discover essential Strength Training Tips to maximize your workouts and achieve your fitness goals efficiently. Learn how to optimize your routine, prevent injuries, and unlock your full potential in the gym.',
+    content1:'Before starting any workout, plan your routine for the week. Focus on different muscle groups on different days to allow for adequate rest and recovery.',
+    content2:'This could include light cardio exercises like jogging or jumping jacks, as well as dynamic stretches to prepare your muscles for the upcoming workout.'
+},
+{
+    name: 'From Beginner to Buff', 
+    duration: '28/10', 
+    time: 'published on October 28', 
+    image: require('./assets/Articles/Beginner-Buff.png'),
+    content: 'Discover essential Strength Training Tips to maximize your workouts and achieve your fitness goals efficiently. Learn how to optimize your routine, prevent injuries.',
+    content1:'Focus on different muscle groups on different days to allow for adequate rest and recovery.',
+    content2:'Begin your workout with a proper warm-up session. This could include light cardio exercises like jogging or jumping jacks, as well as dynamic stretches to prepare your muscles for the upcoming workout.'
+},
+{
+    name: 'Strategies for Gym Success', 
+    duration: '1/11', 
+    time:'published on December 1',
+    image: require('./assets/Articles/Strategies.png'),
+    content: 'Discover essential Strength Training Tips to maximize your workouts and achieve your fitness goals efficiently. Learn how to optimize your routine, prevent injuries, and unlock your full potential in the gym.',
+    content1:'Before starting any workout, plan your routine for the week. Focus on different muscle groups on different days to allow for adequate rest and recovery.',
+    content2:'Begin your workout with a proper warm-up session. This could include light cardio exercises like jogging or jumping jacks.'
+},
+]

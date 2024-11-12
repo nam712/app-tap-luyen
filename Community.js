@@ -30,7 +30,7 @@ const CommunityScreen = () => {
           <TouchableOpacity style={styles.infoContainer} onPress={() => navigation.navigate('Video', { item: communityData[0]})}>
             <Image source={communityData[0].image} style={styles.popularImage} />
             <Text style={styles.popularTitle}>{communityData[0].name}</Text>
-            <View style={[styles.inlineInfo, { paddingLeft: 10, paddingBottom:5 }]}>
+            <View style={styles.inlineInfo}>
               <Icon name="time-outline" size={16} color="#555" />
               <Text style={[styles.popularSubtitle, { marginLeft: 3 }]}>{communityData[0].duration}</Text>
               <Icon name="flame-outline" size={16} color="#555" style={{ marginLeft: 10 }} />
@@ -68,7 +68,7 @@ const CommunityScreen = () => {
               <TouchableOpacity key={index} style={styles.itemCard} onPress={() => navigation.navigate('Video', { item })}>
                 <View style={styles.itemTextContainer}>
                   <Text style={styles.itemName}>{item.name}</Text>
-                  <Text style={[styles.itemInfoText, { marginLeft: 3 }]}>{item.content}</Text>                  
+                  <Text style={[styles.itemInfoText, { marginLeft: 3 }]} numberOfLines={3} ellipsizeMode="tail">{item.content}</Text>                  
                 </View>
                 <Image source={item.image} style={styles.itemImage} />
                 <TouchableOpacity style={styles.favoriteIcon} onPress={() => toggleFavorite(item)}>
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   },
 
   popularTitle: { fontSize: 20, color: '#fff', fontWeight: 'bold', marginVertical: 10, paddingLeft: 10 },
-  inlineInfo: { flexDirection: 'row'  },
+  inlineInfo: { flexDirection: 'row',paddingLeft: 10, paddingBottom:5  },
   popularSubtitle: { color: '#888' },
   favoriteButton: {
     position: 'absolute',

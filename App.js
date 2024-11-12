@@ -6,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 import SplashScreen from './SplashScreen';
 import HomeScreen from './HomeScreen';
-import ProgressScreen from './ProgressScreen';
+import ArticleScreen from './ArticleScreen';
 import FavoriteScreen from './FavoriteScreen';
 import ContactScreen from './ContactScreen';
 import Workout from './Workout';
@@ -17,6 +17,7 @@ import MealPlans from './MealPlans';
 import RecipeDetail from './RecipDetail';
 import MealIdeas from './MealIdeas';
 import Video from './Video';
+import ArticleDetail from './ArticleDetail';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -29,8 +30,8 @@ function TabNavigator() {
 
           if (route.name === 'HomeScreen') {
             iconName = focused ? 'home' : 'home-outline';
-          } else if (route.name === 'ProgressScreen') {
-            iconName = focused ? 'stats-chart' : 'stats-chart-outline';
+          } else if (route.name === 'ArticleScreen') {
+            iconName = focused ? 'document-text' : 'document-text-outline';
           } else if (route.name === 'FavoriteScreen') {
             iconName = focused ? 'star' : 'star-outline';
           } else if (route.name === 'ContactScreen') {
@@ -45,7 +46,7 @@ function TabNavigator() {
       })}
     >
       <Tab.Screen name="HomeScreen" component={HomeScreen} />
-      <Tab.Screen name="ProgressScreen" component={ProgressScreen} />
+      <Tab.Screen name="ArticleScreen" component={ArticleScreen} />
       <Tab.Screen name="FavoriteScreen" component={FavoriteScreen} />
       <Tab.Screen name="ContactScreen" component={ContactScreen} />
     </Tab.Navigator>
@@ -127,8 +128,29 @@ export default function App() {
               headerTintColor: styles.headerTitle.color,
             }}
           />
-          <Stack.Screen name="RecipeDetail" component={RecipeDetail} options={{ title: 'Recipe', headerStyle: { backgroundColor: '#111' }, headerTintColor: '#fff' }} />
-          
+      
+          <Stack.Screen
+            name="RecipeDetail" 
+            component={RecipeDetail}
+            options={{
+              title:'Recipe',
+              headerShown: true,
+              headerStyle: styles.header,
+              headerTitleStyle: styles.headerTitle,
+              headerTintColor: styles.headerTitle.color,
+            }}
+          />
+          <Stack.Screen
+            name="ArticleDetail" 
+            component={ArticleDetail}
+            options={{
+              title:'Article',
+              headerShown: true,
+              headerStyle: styles.header,
+              headerTitleStyle: styles.headerTitle,
+              headerTintColor: styles.headerTitle.color,
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </FavoritesProvider>
@@ -136,16 +158,16 @@ export default function App() {
 }
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#222', // Background color of the header
+    backgroundColor: '#222', 
   },
   headerTitle: {
-    color: '#00BBD3', // Text color of the title
-    fontSize: 20,  // Font size of the title
-    fontWeight: 'bold', // Font weight of the title
+    color: '#00BBD3', 
+    fontSize: 20,  
+    fontWeight: 'bold',
   },
   workoutContainer: {
     flex: 1,
-    backgroundColor: '#222', // Match header background color
-    paddingTop: 0, // Remove padding/margin if any
+    backgroundColor: '#222', 
+    paddingTop: 0, 
   },
 });
