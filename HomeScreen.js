@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
   itemCard: { flexDirection: 'row', backgroundColor: '#111', borderRadius: 20, marginVertical: 10, alignItems: 'center', },
   itemTextContainer: { flex: 1, paddingRight: 10, paddingLeft:9},
   itemName: { fontSize: 23, fontWeight: 'bold',color: '#fff', textAlign:'center' },
-  itemInfoText: {color: '#fff', textAlign:'center' },
+  itemInfoText: {color: '#fff', paddingLeft:20  },
   itemImage: { width:"45%", height: 160, borderRadius: 20, }, 
   favoriteItem: { position: 'absolute', top: 10, right: 10, },
 
