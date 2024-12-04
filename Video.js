@@ -2,11 +2,11 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useFavorites } from './FavoritesContext';
-
+import { useNavigation } from '@react-navigation/native';
 const VideoScreen = ({ route }) => {
   const { favorites, toggleFavorite } = useFavorites();
   const { item } = route.params;
-
+  const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>
         <View >
@@ -20,7 +20,7 @@ const VideoScreen = ({ route }) => {
                         <Icon name={favorites.some(fav => fav.name === item.name) ? "heart" : "heart-outline"} size={24} color="red" />
                     </TouchableOpacity>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.doneButton} >
+                <TouchableOpacity style={styles.doneButton} onPress={() => navigation.goBack()}>
                     <Text style={styles.doneButtonText}>Done</Text>
                 </TouchableOpacity>
             </View>

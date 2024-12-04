@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -8,6 +9,19 @@ import intro1 from'./intro1';
 import intro2 from'./intro2';
 import intro3 from'./intro3';
 import intro4 from'./intro4';
+import WelcomeScreen from './WelcomeScreen';
+import LoginScreen from './LoginScreen';
+import SignUpScreen from './SignUpScreen';
+import SetUpScreen from './SetUpScreen';
+import GenderScreen from './GenderScreen';
+import WeightScreen from './WeightScreen';
+import HeightScreen from './HeightScreen';
+import ProfileScreen from './ProfileScreen';
+
+import ProfilePage from './ProfilePage';
+import NotificationsScreen from './NotificationsScreen';
+import SearchScreen from './SearchScreen';
+import UpdateProfile from './UpdateProfile'
 import HomeScreen from './HomeScreen';
 import ArticleScreen from './ArticleScreen';
 import FavoriteScreen from './FavoriteScreen';
@@ -22,12 +36,14 @@ import MealIdeas from './MealIdeas';
 import Video from './Video';
 import ArticleDetail from './ArticleDetail';
 import RecipeVideo from './RecipeVideo';
+import ProgressTracking from './ProgressTracking';
 
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 function TabNavigator() {
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -60,6 +76,12 @@ function TabNavigator() {
 }
 
 export default function App() {
+  const [profileData, setProfileData] = useState({
+    fullName: '',
+    nickname: '',
+    email: '',
+    mobileNumber: '',
+  });
   return (
     <FavoritesProvider>
       <NavigationContainer>
@@ -83,6 +105,131 @@ export default function App() {
           name="intro4" 
           component={intro4} 
           options={{ headerShown: false}} 
+        />
+                <Stack.Screen 
+          name="Welcome" 
+          component={WelcomeScreen} 
+          options={{ headerShown: false }} 
+        />
+
+        {/* Màn hình đăng nhập và đăng ký */}
+        <Stack.Screen 
+          name="Login" 
+          component={LoginScreen} 
+          options={{
+             title: 'Log In', 
+             headerBackTitleVisible: false,
+             headerStyle: styles.header,
+             headerTitleStyle: styles.headerTitle,
+             headerTintColor: styles.headerTitle.color,
+             }} 
+        />
+        <Stack.Screen 
+          name="Signup" 
+          component={SignUpScreen} 
+          options={{
+             title: 'Create Account',
+              headerBackTitleVisible: false,
+              headerShown: true,
+              headerStyle: styles.header,
+              headerTitleStyle: styles.headerTitle,
+              headerTintColor: styles.headerTitle.color,
+            }} 
+        />
+                {/* Màn hình thiết lập thông tin */}
+                <Stack.Screen 
+          name="SetUp" 
+          component={SetUpScreen} 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="Gender" 
+          component={GenderScreen} 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="Weight" 
+          component={WeightScreen} 
+          options={{ headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="Height" 
+          component={HeightScreen} 
+          options={{ headerShown: false }} 
+        />
+                {/* Màn hình nhập thông tin cá nhân */}
+          <Stack.Screen 
+          name="ProfileScreen" 
+          options={{ 
+            title: 'Fill Profile', 
+            headerShown: true,
+            headerStyle: styles.header,
+            headerTitleStyle: styles.headerTitle,
+            headerTintColor: styles.headerTitle.color,
+          }}
+        >
+          {(props) => (
+            <ProfileScreen 
+              {...props} 
+              setProfileData={setProfileData} 
+              profileData={profileData} 
+            />
+          )}
+        </Stack.Screen>
+
+        {/* Màn hình hiển thị thông tin cá nhân */}
+        <Stack.Screen 
+  name="ProfilePage" 
+  options={{ 
+    title: 'My Profile', 
+    headerShown: true,
+    headerStyle: styles.header,
+    headerTitleStyle: styles.headerTitle,
+    headerTintColor: styles.headerTitle.color,
+  }}
+>
+  {(props) => (
+    <ProfilePage 
+      {...props} 
+      profileData={profileData} 
+    />
+  )}
+</Stack.Screen>
+
+        {/* Màn hình thông báo */}
+        <Stack.Screen 
+          name="Notifications" 
+          component={NotificationsScreen} 
+          options={{ title: 'Notifications',
+            headerShown: true,
+            headerStyle: styles.header,
+            headerTitleStyle: styles.headerTitle,
+            headerTintColor: styles.headerTitle.color,
+           }} 
+        />
+
+        {/* Màn hình tìm kiếm */}
+        <Stack.Screen 
+          name="Search" 
+          component={SearchScreen} 
+          options={{ 
+            title: 'Search' ,
+            headerShown: true,
+            headerStyle: styles.header,
+            headerTitleStyle: styles.headerTitle,
+            headerTintColor: styles.headerTitle.color,
+          }} 
+        />
+              <Stack.Screen 
+          name="UpdateProfile" 
+          component={UpdateProfile} 
+          options={{ 
+            title: 'Update Profile' ,
+            headerShown: true,
+            headerStyle: styles.header,
+            headerTitleStyle: styles.headerTitle,
+            headerTintColor: styles.headerTitle.color,
+          }} 
         />
           <Stack.Screen
             name="TabNavigator"
@@ -178,6 +325,17 @@ export default function App() {
             component={ArticleDetail}
             options={{
               title:'Article',
+              headerShown: true,
+              headerStyle: styles.header,
+              headerTitleStyle: styles.headerTitle,
+              headerTintColor: styles.headerTitle.color,
+            }}
+          />
+                      <Stack.Screen
+            name="ProgressTracking"
+            component={ProgressTracking}
+            options={{
+              title: 'Progress Tracking',
               headerShown: true,
               headerStyle: styles.header,
               headerTitleStyle: styles.headerTitle,

@@ -343,7 +343,7 @@ export const forums = [
     },
     { 
         title: 'Nutrition and Diet Strategies', 
-        subtitle: 'Meal planning, supplementation preferences', 
+        subtitle: 'Meal planning, supplementation ', 
         time: 'Today 17:05' 
     },
     { 

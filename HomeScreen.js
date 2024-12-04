@@ -16,13 +16,13 @@ const HomeScreen = () => {
         <Text style={styles.greeting}>Hi, Madison</Text>
         <Text style={styles.subtitle}>It's time to challenge your limits.</Text>
         <View style={styles.icons}>
-  <TouchableOpacity>
+  <TouchableOpacity onPress={() => navigation.navigate('Search')}>
     <Icon name="search-outline" size={24} color="#fff" style={styles.icon} />
   </TouchableOpacity>
-  <TouchableOpacity>
+  <TouchableOpacity onPress={() => navigation.navigate('Notifications')}>
     <Icon name="notifications-outline" size={24} color="#fff" style={styles.icon} />
   </TouchableOpacity>
-  <TouchableOpacity>
+  <TouchableOpacity onPress={() => navigation.navigate('ProfilePage')}>
     <Icon name="person-outline" size={24} color="#fff" style={styles.icon} />
   </TouchableOpacity>
 </View>
@@ -34,7 +34,7 @@ const HomeScreen = () => {
           <Icon name="barbell-outline" size={24} color="#fff" />
           <Text style={styles.navText}>Workout</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('ProgressTracking')}>
           <Icon name="stats-chart-outline" size={24} color="#fff" />
           <Text style={styles.navText}>Progress Tracking</Text>
         </TouchableOpacity>

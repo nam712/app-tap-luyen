@@ -15,7 +15,7 @@ const OnboardingScreenD = ({ navigation }) => {
           <Text style={styles.title}>A Community For You, Challenge Yourself</Text>
           <TouchableOpacity
             style={styles.nextButton}
-            onPress={() => navigation.navigate('TabNavigator')}
+            onPress={() => navigation.navigate('Welcome')}
           >
             <Text style={styles.nextButtonText}>Get Started</Text>
           </TouchableOpacity>
