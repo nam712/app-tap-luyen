@@ -21,7 +21,7 @@ export default function App() {
       {/* Profile */}
       <View style={styles.profile}>
         <Image
-          source={{ uri: 'https://via.placeholder.com/80' }}
+          source={require('./assets/Frame17.png')}
           style={styles.profileImage}
         />
         <View>
