@@ -19,6 +19,7 @@ import HeightScreen from './HeightScreen';
 import ProfileScreen from './ProfileScreen';
 
 import ProfilePage from './ProfilePage';
+import DetailSetting from './DetailSetting';
 import NotificationsScreen from './NotificationsScreen';
 import SearchScreen from './SearchScreen';
 import UpdateProfile from './UpdateProfile'
@@ -35,7 +36,7 @@ import RecipeDetail from './RecipeDetail';
 import MealIdeas from './MealIdeas';
 import Video from './Video';
 import ArticleDetail from './ArticleDetail';
-import RecipeVideo from './RecipeVideo';
+import RecipeVideo from './meal/RecipeVideo';
 import ProgressTracking from './ProgressTracking';
 
 
@@ -231,6 +232,16 @@ export default function App() {
             headerTintColor: styles.headerTitle.color,
           }} 
         />
+          <Stack.Screen
+            name="DetailSetting"
+            component={DetailSetting}
+            options={{
+              headerShown: true,
+              headerStyle: styles.header,
+              headerTitleStyle: styles.headerTitle,
+              headerTintColor: styles.headerTitle.color,
+            }}
+          />
           <Stack.Screen
             name="TabNavigator"
             component={TabNavigator}

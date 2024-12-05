@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { useFavorites } from './FavoritesContext';
+import { useFavorites } from '../FavoritesContext';
 
 const RecipeVideoScreen = ({ route }) => {
   const { favorites, toggleFavorite } = useFavorites();

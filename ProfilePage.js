@@ -26,7 +26,7 @@ const ProfileScreen = ({ navigation }) => {
         <MenuItem title="Profile" onPress={() => navigation.navigate('UpdateProfile')} />
         <MenuItem title="Favorite"  />
         <MenuItem title="Privacy Policy"  />
-        <MenuItem title="Settings"  />
+        <MenuItem title="Settings" onPress={() => navigation.navigate('DetailSetting')} />
         <MenuItem title="Help"  />
         <MenuItem
   title="Logout"

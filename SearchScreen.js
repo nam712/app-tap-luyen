@@ -1,27 +1,56 @@
-import React from 'react';
-import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, FlatList, StyleSheet, Image } from 'react-native';
+import { workoutData, nutritionData, mealplanData, mealideaData } from './DataSets'; // Đường dẫn phù hợp đến file dữ liệu của bạn
 
 const SearchScreen = () => {
-  const searchResults = [
-    { id: '1', title: 'Squat Exercise', category: 'Workout' },
-    { id: '2', title: 'Full Body Stretching', category: 'Workout' },
-    { id: '3', title: 'Delights With Greek Yogurt', category: 'Nutrition' },
+  const [searchText, setSearchText] = useState('');
+  const [filteredResults, setFilteredResults] = useState([]);
+
+  // Kết hợp tất cả dữ liệu vào một mảng
+  const allData = [
+    ...workoutData.Beginner,
+    ...workoutData.Intermediate,
+    ...workoutData.Advanced,
+    ...nutritionData,
+    ...mealplanData,
+    ...mealideaData.Breakfast,
+    ...mealideaData.Lunch,
   ];
+
+  // Hàm xử lý tìm kiếm
+  const handleSearch = (text) => {
+    setSearchText(text);
+    if (text === '') {
+      setFilteredResults([]);
+    } else {
+      const results = allData.filter((item) =>
+        item.name.toLowerCase().includes(text.toLowerCase())
+      );
+      setFilteredResults(results);
+    }
+  };
 
   return (
     <View style={styles.container}>
       <TextInput
         style={styles.searchInput}
         placeholder="Search here..."
-        placeholderTextColor="#888" // Màu chữ gợi ý
+        placeholderTextColor="#888"
+        value={searchText}
+        onChangeText={handleSearch}
       />
       <FlatList
-        data={searchResults}
-        keyExtractor={(item) => item.id}
+        data={filteredResults}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.resultItem}>
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.category}>{item.category}</Text>
+            <Image source={item.image} style={styles.resultImage} />
+            <View>
+              <Text style={styles.title}>{item.name}</Text>
+              <Text style={styles.category}>
+                {item.duration} | {item.calories}
+              </Text>
+            </View>
           </View>
         )}
       />
@@ -37,28 +66,36 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 40,
-    borderColor: '#333', // Viền xám đậm
+    borderColor: '#333',
     borderWidth: 1,
     marginBottom: 10,
     paddingHorizontal: 10,
     borderRadius: 5,
-    backgroundColor: '#2C2C2C', // Nền xám nhẹ
+    backgroundColor: '#2C2C2C', // Nền xám tối
     color: '#fff', // Màu chữ trắng
   },
   resultItem: {
+    flexDirection: 'row',
     marginBottom: 15,
-    backgroundColor: '#2E1E3C', // Nền tím than nhẹ
+    backgroundColor: '#2C2C2C', // Nền xám tối
     padding: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  resultImage: {
+    width: 50,
+    height: 50,
+    marginRight: 10,
     borderRadius: 5,
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#00BBD3', // Màu xanh dương nổi bật
+    color: '#fff', // Màu chữ trắng cho tiêu đề
   },
   category: {
     fontSize: 14,
-    color: '#ccc', // Màu chữ xám nhạt
+    color: '#ccc', // Màu xám nhạt cho thông tin phụ
   },
 });
 
