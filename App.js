@@ -36,7 +36,7 @@ import RecipeDetail from './RecipeDetail';
 import MealIdeas from './MealIdeas';
 import Video from './Video';
 import ArticleDetail from './ArticleDetail';
-import RecipeVideo from './meal/RecipeVideo';
+import RecipeVideo from './RecipeVideo';
 import ProgressTracking from './ProgressTracking';
 
 
